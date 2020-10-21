@@ -51,7 +51,7 @@ function update(data,type,sorted){
 		.range([height,0])
 
 	const bars=svg.selectAll('.bar')
-		.data(data)
+		.data(data,d=>d)
 
 	bars.enter()
 		.append("rect")
@@ -59,16 +59,12 @@ function update(data,type,sorted){
 			return 0
 		})
 		.attr('y',function(d,i){
-			return height-storeScale(d[type])
+			return height
 		})
-		.attr('width',0)
-		.attr('height',function(d){
-			return 0
-		})
+		.attr('opacity',0)
 		.merge(bars)
 		.transition()
-      	.delay(200)
-		.duration(1000)
+		.duration(700)
 		.attr('class','bar')
 		.attr('x',function(d,i){
 			return xAxisBand(d.company)
@@ -81,10 +77,15 @@ function update(data,type,sorted){
 			return storeScale(d[type])
 		})
 		.attr('fill','skyblue')
+		.attr('opacity',1)
 
 	bars.exit()
-		.attr('fill','white')
+		.transition()
+		.duration(800)
 		.attr('opacity',0)
+		.attr('x',function(d,i){
+			return xAxisBand(d.company)
+		})
 		.remove();
 		
 
