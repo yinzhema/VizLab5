@@ -1,0 +1,29 @@
+.chart{
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+#group-by{
+    width: 30%;
+    display: inline-block;
+    margin-left:10px;
+}
+
+#group-by-label{
+    margin-left: 70px;
+    margin-top:10px;
+    display: inline-block;
+}
+
+#title,#subtitle{
+    font-style:italic;
+    margin-top:10px;
+    margin-left:70px;
+}
+
+#sort{
+    margin-left: 10px;
+}
+
+
+
